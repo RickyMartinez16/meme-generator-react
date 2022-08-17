@@ -1,0 +1,26 @@
+.main{
+    padding: 35px
+}
+
+.form{
+    display: grid;
+    grid-template: 40px 40px / 1fr 1fr;
+    gap: 17px;
+    font-family: "Karla", sans-serif;
+}
+
+.form-input{
+    font-family: "Karla", sans-serif;
+    border-radius: 5px;
+    text-indent: 5px;
+    border: 1px solid #D5D4D8;
+}
+
+.button{
+    grid-column: 1 / -1;
+    border-radius: 5px;
+    background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
+    color:whitesmoke;
+    border: none;
+    cursor: pointer
+}
