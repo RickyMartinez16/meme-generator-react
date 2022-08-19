@@ -14,7 +14,7 @@ function Meme(){
 
     const [allMemeImages, setAllMemeImages] = useState(memesData)
 
-    function getMemeImage(){
+    function getMemeImage(){        //handle click function
         const memesArray = allMemeImages.data.memes
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
