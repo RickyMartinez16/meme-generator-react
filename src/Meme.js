@@ -15,10 +15,10 @@ function Meme(){
     const [allMemeImages, setAllMemeImages] = useState(memesData)
 
     function getMemeImage(){        //handle click function
-        const memesArray = allMemeImages.data.memes
+        const memesArray = allMemeImages.data.memes     
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
-        setMeme(prevState => ({
+        setMeme(prevState => ({     //setMeme takes the previous state and then returns an object with the previpus state but changes the image
             ...prevState,
             randomImage: url
         }))
