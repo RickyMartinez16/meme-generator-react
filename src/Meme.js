@@ -13,6 +13,8 @@ function Meme(){
 
 
     const [meme, setMeme] = useState({
+        topText: "",
+        bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
 
@@ -30,9 +32,9 @@ function Meme(){
 
     function handleChange(event){
         const {name, value} = event.target
-        setFormData(prevText => {
+        setMeme(prevMeme => {
             return ({
-                ...prevText,
+                ...prevMeme,
                 [name]: value
             })
         })
@@ -49,7 +51,7 @@ function Meme(){
                     placeholder="top text"
                     className="form-input"
                     name="topText"
-                    value={formData.topText}
+                    value={meme.topText}
                     onChange={handleChange}
                     >
                 </input>
@@ -58,7 +60,7 @@ function Meme(){
                     placeholder="bottom text"
                     className="form-input"
                     name="bottomText"
-                    value={formData.bottomText}
+                    value={meme.bottomText}
                     onChange={handleChange}
                     >
                 </input>
@@ -69,8 +71,8 @@ function Meme(){
                 </button>
                 <div className="meme">
                     <img src={meme.randomImage} alt="meme" className="meme-image" />
-                    <h2 className="meme-topText">{formData.topText}</h2>
-                    <h2 className="meme-bottomText">{formData.bottomText}</h2>
+                    <h2 className="meme-topText">{meme.topText}</h2>
+                    <h2 className="meme-bottomText">{meme.bottomText}</h2>
                 </div>
             </div>
         </div>
