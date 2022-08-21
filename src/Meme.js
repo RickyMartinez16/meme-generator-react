@@ -6,6 +6,12 @@ import "./meme.css"
 function Meme(){
 
     
+    const [formData, setFormData] = useState({
+        topText: "",
+        bottomText: ""
+    })
+
+
     const [meme, setMeme] = useState({
         topText: "",
         bottomText: "",
@@ -24,21 +30,37 @@ function Meme(){
         }))
     }
 
+    function handleChange(event){
+        const {name, value} = event.targeet
+        setFormData(prevText => {
+            return ({
+                ...prevText,
+                [name]: value
+            })
+        })
+    }
+
 
     return(
         <div className="main">
             <div className="form">
                 <input 
                     type="text" 
-                    name="top-text" 
                     placeholder="top text"
-                    className="form-input">
+                    className="form-input"
+                    name="topText"
+                    value={formData.topText}
+                    onChange={handleChange}
+                    >
                 </input>
                 <input 
-                    type="text" 
-                    name="bottm-text" 
+                    type="text"  
                     placeholder="bottom text"
-                    className="form-input">
+                    className="form-input"
+                    name="bottomText"
+                    value={formData.bottomText}
+                    onChange={handleChange}
+                    >
                 </input>
                 <button 
                     onClick={getMemeImage} 
@@ -47,8 +69,8 @@ function Meme(){
                 </button>
                 <div className="meme">
                     <img src={meme.randomImage} alt="meme" className="meme-image" />
-                    <h2 className="meme-topText">This is the top text</h2>
-                    <h2 className="meme-bottomText">This is the bottom text</h2>
+                    <h2 className="meme-topText">{formData.topText}</h2>
+                    <h2 className="meme-bottomText">{formData.bottomText}</h2>
                 </div>
             </div>
         </div>
