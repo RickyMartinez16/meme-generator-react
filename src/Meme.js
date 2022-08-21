@@ -13,8 +13,6 @@ function Meme(){
 
 
     const [meme, setMeme] = useState({
-        topText: "",
-        bottomText: "",
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
 
@@ -31,7 +29,7 @@ function Meme(){
     }
 
     function handleChange(event){
-        const {name, value} = event.targeet
+        const {name, value} = event.target
         setFormData(prevText => {
             return ({
                 ...prevText,
@@ -39,6 +37,8 @@ function Meme(){
             })
         })
     }
+
+    
 
 
     return(
