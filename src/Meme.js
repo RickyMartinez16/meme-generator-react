@@ -1,16 +1,8 @@
-import React, {useState} from "react";
-import memesData from "./memesData.js"
+import React, {useState, useEffect} from "react";
 import "./meme.css"
 
 
 function Meme(){
-
-    
-    const [formData, setFormData] = useState({
-        topText: "",
-        bottomText: ""
-    })
-
 
     const [meme, setMeme] = useState({
         topText: "",
@@ -18,10 +10,16 @@ function Meme(){
         randomImage: "http://i.imgflip.com/1bij.jpg"
     })
 
-    const [allMemeImages, setAllMemeImages] = useState(memesData)
+    const [allMemeImages, setAllMemeImages] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemeImages(data.data.memes))
+    })
 
     function getMemeImage(){        //handle click function
-        const memesArray = allMemeImages.data.memes     
+        const memesArray = allMemeImages    
         const randomNumber = Math.floor(Math.random() * memesArray.length)
         const url = memesArray[randomNumber].url
         setMeme(prevState => ({     //setMeme takes the previous state and then returns an object with the previpus state but changes the image
